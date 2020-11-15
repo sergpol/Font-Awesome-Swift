@@ -3,7 +3,7 @@ import UIKit
 
 public extension UITextField {
 
-    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    func setRightViewFAIcon(icon: FAType, rightViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
 
         let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
@@ -13,7 +13,7 @@ public extension UITextField {
         self.rightViewMode = rightViewMode
     }
 
-    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
 
         let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
@@ -227,7 +227,7 @@ public extension UIImageView {
     /**
      Create UIImage from FAType
      */
-    public func setFAIconWithName(icon: FAType, textColor: UIColor, orientation: UIImage.Orientation = UIImage.Orientation.down, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
+    func setFAIconWithName(icon: FAType, textColor: UIColor, orientation: UIImage.Orientation = UIImage.Orientation.down, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
         self.image = UIImage(icon: icon, size: size ?? frame.size, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
     }
@@ -236,7 +236,7 @@ public extension UIImageView {
 
 public extension UITabBarItem {
 
-    public func setFAIcon(icon: FAType, size: CGSize? = nil, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
+    func setFAIcon(icon: FAType, size: CGSize? = nil, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let tabBarItemImageSize = size ?? CGSize(width: 30, height: 30)
 
@@ -252,7 +252,7 @@ public extension UITabBarItem {
 
 public extension UISegmentedControl {
 
-    public func setFAIcon(icon: FAType, forSegmentAtIndex segment: Int) {
+    func setFAIcon(icon: FAType, forSegmentAtIndex segment: Int) {
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: 23)
         assert(font != nil, FAStruct.ErrorAnnounce)
@@ -264,21 +264,21 @@ public extension UISegmentedControl {
 
 public extension UIStepper {
 
-    public func setFABackgroundImage(icon: FAType, forState state: UIControl.State) {
+    func setFABackgroundImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let backgroundSize = CGSize(width: 47, height: 29)
         let image = UIImage(icon: icon, size: backgroundSize)
         setBackgroundImage(image, for: state)
     }
 
-    public func setFAIncrementImage(icon: FAType, forState state: UIControl.State) {
+    func setFAIncrementImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let incrementSize = CGSize(width: 16, height: 16)
         let image = UIImage(icon: icon, size: incrementSize)
         setIncrementImage(image, for: state)
     }
 
-    public func setFADecrementImage(icon: FAType, forState state: UIControl.State) {
+    func setFADecrementImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let decrementSize = CGSize(width: 16, height: 16)
         let image = UIImage(icon: icon, size: decrementSize)
@@ -289,7 +289,7 @@ public extension UIStepper {
 
 public extension UIImage {
 
-    public convenience init(icon: FAType, size: CGSize, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
+    convenience init(icon: FAType, size: CGSize, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.center
@@ -319,7 +319,7 @@ public extension UIImage {
         }
     }
 
-    public convenience init(bgIcon: FAType, orientation: UIImage.Orientation = UIImage.Orientation.down, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
+    convenience init(bgIcon: FAType, orientation: UIImage.Orientation = UIImage.Orientation.down, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
 
         let bgSize: CGSize!
         let topSize: CGSize!
